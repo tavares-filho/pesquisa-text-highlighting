@@ -16,7 +16,7 @@
 
 <body>
 
-    <div id="tcle">
+    <section id="tcle">
         <h2>Termo de Consentimento</h2>
         <p>[Você foi convidado(a) a participar da pesquisa intitulada “O USO DA TÉCNICA DE COCRIAÇÃO PARA O DESENVOLVIMENTO DE PRODUTOS HÍBRIDOS (LÁCTEOS + PLANT-BASED): UM ESTUDO SOBRE A PERCEPÇÃO DOS CONSUMIDORES E CARACTERIZAÇÃO SENSORIAL DESTES PRODUTOS” sob a responsabilidade do pesquisador Igor Souza de Brito e do prof Drº Erick Almeida Esmerino, cujo objetivo é desenvolver um produto híbrido (lácteo e plant based) através da técnica de cocriação, identificando percepções sobre a rotulagem e a importância das escolhas alimentares, bem como revelar as crenças, atitudes e as características de qualidade julgadas como mais importantes pelos consumidores para os produtos lácteos convencionais, as alternativas ao leite à base de plantas e aos produtos híbridos. Ao aceitar esse convite, pedimos que leia atentamente o termo de consentimento livre e esclarecido, apresentado a seguir:
 Caso aceite participar, você responderá perguntas de características socioeconômicas, preferências e consumo de leite, produtos lácteos e extratos vegetais. Sua participação é voluntária e você pode desistir a qualquer momento sem sofrer consequências. Os riscos dessa pesquisa são mínimos, como cansaço ao responder o questionário e possíveis constrangimentos ao se confrontar com questões sensíveis. Como a ferramenta de coleta de dados é por questionário eletrônico, para minimizar os riscos de vazamento de dados, eles serão armazenados em drives externos protegidos por senhas. Para minimizar esses riscos, você pode optar por não responder alguma pergunta ou interromper sua participação de forma temporária ou definitiva (basta fechar a janela da pesquisa). Se depois de consentir em sua participação você desistir de continuar participando, tem o direito e a liberdade de retirar seu consentimento em qualquer fase da pesquisa, seja antes ou depois dos dados coletados, independentemente do motivo e sem nenhum prejuízo a sua pessoa. Para cancelar a sua participação, basta fechar a janela do questionário a qualquer momento, e suas respostas serão automaticamente desconsideradas. Como benefício, você estará contribuindo para o desenvolvimento de um novo produto e para o conhecimento científico.
@@ -35,13 +35,12 @@ Por favor indique se você concorda em participar do estudo.
 ]</p>
         <button onclick="startSurvey(true)">Aceito</button>
         <button onclick="startSurvey(false)">Não aceito</button>
-    </div>
+    </section>
 
     <form id="surveyForm">
 
-        <div id="survey" class="hidden">
+        <section id="dadosSociodemograficos" class="hidden">
             <h2>Questionário</h2>
-        <form id="surveyForm">
             <label>Você consome leite ou derivados?</label>
             <select id="consumoLeite" required>
                 <option value="">Selecione</option>
@@ -130,9 +129,9 @@ Por favor indique se você concorda em participar do estudo.
 
             <button type="button" onclick="mudarTela('secao-textHighlighting')">Próximo</button>
   </form> <!-- Adicione o fechamento aqui -->
-</div>
+</section>
     
-        <div id="secao-textHighlighting" class="hidden">
+        <section id="textHighlighting" class="hidden">
             <h3>Tarefa de Text Highlighting</h3>
             <p>Selecione partes do texto abaixo e marque como positivo (verde) ou negativo (vermelho).</p>
             <p id="highlightText">O iogurte é um produto lácteo fermentado com cultivos protosimbióticos de Streptococcus salivarius subsp. thermophilus e Lactobacillus delbrueckii subsp. Bulgaricus, obtido por coagulação ácida e uma diminuição do pH do leite, ou reconstituído ou não de outros produtos lácteos. Amplamente consumido em diversos mercados ao redor do mundo, possuindo grande impacto economicamente. Sendo assim, existe no mercado diversas variações do produto, desde sua forma integral, desnatado, semi-desnatado, sem lactose; podendo ser encontrado em diferentes formatos, sabores e formulações, desde as versões naturais até aquelas enriquecidas com probióticos, prebióticos, frutas e adoçantes. 
@@ -142,10 +141,10 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             <button type="button" onclick="highlightText('positive')">Marcar Positivo</button>
             <button type="button" onclick="highlightText('negative')">Marcar Negativo</button><br><br>
             <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-1')">Próximo</button>
-        </div>
+        </section>
 
     <form id="ceqForm">
-  <div id="secao-avaliacaoEmocional-1" class="hidden">
+  <section id="avaliacaoEmocionalProduto1" class="hidden">
 <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
 <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
 
@@ -196,10 +195,10 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 <input type="checkbox" name="atributosProduto1" value="Aparência brilhante"> Aparência brilhante<br><br>
         
             <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-2')">Próximo Produto</button>
-        </div>
+        </section>
     
   <!-- Produto 2 -->
-       <div id="secao-avaliacaoEmocional-2" class="hidden">
+       <section id="avaliacaoEmocionalProduto2" class="hidden">
         <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
         <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
         <h4>Produto 2</h4>
@@ -233,10 +232,10 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         <input type="checkbox" name="atributosProduto2" value="É bom para o meio ambiente"> É bom para o meio ambiente<br><br>
 
             <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-3')">Próximo Produto</button>
-        </div>
+        </section>
 
           <!-- Produto 3 -->
-        <div id="secao-avaliacaoEmocional-3" class="hidden">
+        <section id="avaliacaoEmocionalProduto3" class="hidden">
         <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
         <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
         <h4>Produto 3</h4>
@@ -271,7 +270,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 
                       
             <button type="submit">Finalizar Pesquisa</button>
-        </div>
+        </section>
 
     </form>
 
@@ -315,8 +314,10 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             event.preventDefault();
             alert("Pesquisa enviada com sucesso!");
         });
-
-    </script>
+<section id="finalizacao" class="hidden">
+    <h2>Obrigado por participar da pesquisa!</h2>
+    <p>Sua resposta foi enviada com sucesso. Agradecemos sua colaboração!</p>
+</section>
 
 </body>
 
