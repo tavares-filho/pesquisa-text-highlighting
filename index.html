@@ -41,8 +41,7 @@ Por favor indique se você concorda em participar do estudo.
 
         <div id="survey" class="hidden">
             <h2>Questionário</h2>
-        <form id="surveyForm">
-            <label>Você consome leite ou derivados?</label>
+                    <label>Você consome leite ou derivados?</label>
             <select id="consumoLeite" required>
                 <option value="">Selecione</option>
                 <option value="sim">Sim</option>
@@ -128,7 +127,7 @@ Por favor indique se você concorda em participar do estudo.
                 <option value="diariamente">Diariamente</option>
             </select><br><br>
 
-            <button type="button" onclick="mudarTela('secao-textHighlighting')">Próximo</button>
+            <button type="button" onclick="validarAntesDeEnviar()">Finalizar Pesquisa</button>
   </form> <!-- Adicione o fechamento aqui -->
 </div>
     
@@ -360,6 +359,15 @@ function validarRespostas(secaoId) {
     return true; // Tudo preenchido corretamente
 }
 
+function validarAntesDeEnviar() {
+    if (!validarRespostas("survey") || !validarRespostas("secao-avaliacaoEmocional-1") || 
+        !validarRespostas("secao-avaliacaoEmocional-2") || !validarRespostas("secao-avaliacaoEmocional-3")) {
+        alert("Por favor, responda todas as perguntas antes de finalizar.");
+        return;
+    }
+    enviarPesquisa(); // Só envia se tudo estiver preenchido
+}
+        
 function enviarPesquisa() {
     let respostas = {
         consumoLeite: document.getElementById("consumoLeite").value,
