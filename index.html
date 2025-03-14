@@ -325,17 +325,19 @@ function mudarTela(proximaSecao) {
     }
 
     // Esconder todas as seções
-    secoes.forEach(secao => {
+     secoes.forEach(secao => {
         let elemento = document.getElementById(secao);
         if (elemento) {
-            elemento.classList.add('hidden');
+            elemento.style.display = "none"; // Em vez de classList.add('hidden')
         }
     });
 
     // Mostrar a próxima tela
     let proximaTela = document.getElementById(proximaSecao);
     if (proximaTela) {
-        proximaTela.classList.remove('hidden');
+        proximaTela.style.display = "block"; // Em vez de classList.remove('hidden')
+    } else {
+        console.error(`A seção ${proximaSecao} não foi encontrada!`);
     }
 
     window.scrollTo(0, 0);
