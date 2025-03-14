@@ -275,14 +275,14 @@ A redução do consumo de produtos de origem animal está associada a diversas d
     </form>
 
     <script>
-        function startSurvey(accepted) {
-            if (accepted) {
-                document.getElementById('tcle').classList.add('hidden');
-                document.getElementById('survey').classList.remove('hidden');
-            } else {
-                alert('Você optou por não participar da pesquisa.');
-            }
-        }
+function startSurvey(accepted) {
+    if (accepted) {
+        document.getElementById('tcle').classList.add('hidden'); // Esconde o TCLE
+        document.getElementById('dadosSociodemograficos').classList.remove('hidden'); // Mostra a primeira seção
+    } else {
+        alert('Você optou por não participar da pesquisa.');
+    }
+}
 
         function highlightText(type) {
             let selection = window.getSelection();
@@ -294,13 +294,14 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         }
 
         function mudarTela(proximaSecao) {
-            const secoes = [
-                'survey',
-                'secao-textHighlighting',
-                'secao-avaliacaoEmocional-1',
-                'secao-avaliacaoEmocional-2',
-                'secao-avaliacaoEmocional-3'
-            ];
+const secoes = [
+    'dadosSociodemograficos',
+    'textHighlighting',
+    'avaliacaoEmocionalProduto1',
+    'avaliacaoEmocionalProduto2',
+    'avaliacaoEmocionalProduto3',
+    'finalizacao'
+];
 
             secoes.forEach(secao => {
                 document.getElementById(secao).classList.add('hidden');
@@ -320,6 +321,5 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 </section>
 
 </body>
-
 </html>
 
