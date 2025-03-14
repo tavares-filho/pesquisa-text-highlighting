@@ -188,9 +188,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 <input type="checkbox" name="atributosProduto1" value="Cor branco cremoso"> Cor branco cremoso<br>
 <input type="checkbox" name="atributosProduto1" value="Aparência brilhante"> Aparência brilhante<br><br>
 
-    <button type="submit">Finalizar Pesquisa</button>
-</div>
-            <button type="submit">Finalizar Pesquisa</button>
+              <button type="submit">Finalizar Pesquisa</button>
         </form>
     </div>
     
@@ -219,13 +217,15 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         });
     </script>
   <script>
-    function mudarTela(proximaSecao) {
-        document.getElementById('secao-questionario').classList.add('hidden');
-        document.getElementById('secao-textHighlighting').classList.add('hidden');
-        document.getElementById('secao-avaliacaoEmocional').classList.add('hidden');
+   function mudarTela(proximaSecao) {
+    const secoes = ['survey', 'secao-textHighlighting', 'secao-avaliacaoEmocional'];
+    
+    secoes.forEach(secao => {
+        document.getElementById(secao).classList.add('hidden');
+    });
 
-        document.getElementById(proximaSecao).classList.remove('hidden');
-    }
+    document.getElementById(proximaSecao).classList.remove('hidden');
+}
 </script>
 </body>
 </html>
