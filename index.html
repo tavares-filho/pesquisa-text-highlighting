@@ -277,8 +277,8 @@ A redução do consumo de produtos de origem animal está associada a diversas d
     <script>
 function startSurvey(accepted) {
     if (accepted) {
-        document.getElementById('tcle').classList.add('hidden'); // Esconde o TCLE
-        document.getElementById('dadosSociodemograficos').classList.remove('hidden'); // Mostra a primeira seção
+        document.getElementById('tcle').style.display = "none"; // Esconde a tela TCLE
+        document.getElementById('dadosSociodemograficos').classList.remove('hidden'); // Mostra o questionário
     } else {
         alert('Você optou por não participar da pesquisa.');
     }
@@ -293,23 +293,30 @@ function startSurvey(accepted) {
             range.surroundContents(span);
         }
 
-        function mudarTela(proximaSecao) {
-const secoes = [
-    'dadosSociodemograficos',
-    'textHighlighting',
-    'avaliacaoEmocionalProduto1',
-    'avaliacaoEmocionalProduto2',
-    'avaliacaoEmocionalProduto3',
-    'finalizacao'
-];
+function mudarTela(proximaSecao) {
+    const secoes = [
+        'dadosSociodemograficos',
+        'textHighlighting',
+        'avaliacaoEmocionalProduto1',
+        'avaliacaoEmocionalProduto2',
+        'avaliacaoEmocionalProduto3',
+        'finalizacao'
+    ];
 
-            secoes.forEach(secao => {
-                document.getElementById(secao).classList.add('hidden');
-            });
-
-            document.getElementById(proximaSecao).classList.remove('hidden');
-            window.scrollTo(0, 0);
+    secoes.forEach(secao => {
+        let elemento = document.getElementById(secao);
+        if (elemento) {
+            elemento.classList.add('hidden');
         }
+    });
+
+    let proximaTela = document.getElementById(proximaSecao);
+    if (proximaTela) {
+        proximaTela.classList.remove('hidden');
+    }
+
+    window.scrollTo(0, 0);
+}
 
         document.getElementById("surveyForm").addEventListener("submit", function (event) {
             event.preventDefault();
