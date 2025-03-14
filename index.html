@@ -270,7 +270,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         <input type="checkbox" name="atributosProduto3" value="É bom para o meio ambiente"> É bom para o meio ambiente<br><br>
 
                       
-            <button type="submit">Finalizar Pesquisa</button>
+            <button type="button" onclick="mudarTela('finalizacao')">Finalizar Pesquisa</button>
         </div>
 
     </form>
@@ -356,6 +356,13 @@ function validarRespostas(secaoId) {
 
     </script>
 
+<!-- Tela de Finalização -->
+<div id="finalizacao" class="hidden">
+    <h2>Pesquisa Finalizada</h2>
+    <p>Obrigado por participar da nossa pesquisa! Suas respostas foram registradas com sucesso.</p>
+    <button onclick="window.location.reload()">Finalizar</button>
+</div>
+        
 </body>
 
 </html>
