@@ -318,10 +318,10 @@ function mudarTela(proximaSecao) {
     window.scrollTo(0, 0);
 }
 
-        document.getElementById("surveyForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            alert("Pesquisa enviada com sucesso!");
-        });
+document.getElementById("surveyForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    mudarTela('finalizacao'); // Agora mostra a tela de finalização corretamente
+});
 <section id="finalizacao" class="hidden">
     <h2>Obrigado por participar da pesquisa!</h2>
     <p>Sua resposta foi enviada com sucesso. Agradecemos sua colaboração!</p>
