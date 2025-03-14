@@ -312,8 +312,8 @@ function mudarTela(proximaSecao) {
 
     if (!secaoAtual) return; // Se não houver seção atual, interrompe
 
-    // Verifica se a seção atual está completamente preenchida antes de avançar
-    if (!validarRespostas(secaoAtual)) {
+    // Se for a última tela, não verifica campos obrigatórios
+    if (proximaSecao !== "finalizacao" && !validarRespostas(secaoAtual)) {
         alert("Por favor, responda todas as perguntas antes de continuar.");
         return; // Impede a mudança de tela
     }
@@ -360,9 +360,12 @@ function validarRespostas(secaoId) {
 <div id="finalizacao" class="hidden">
     <h2>Pesquisa Finalizada</h2>
     <p>Obrigado por participar da nossa pesquisa! Suas respostas foram registradas com sucesso.</p>
-    <button onclick="window.location.reload()">Finalizar</button>
+    <button onclick="fecharPesquisa()">Finalizar</button>
 </div>
-        
+function fecharPesquisa() {
+    alert("Obrigado por participar! Você pode fechar esta página.");
+}
+      
 </body>
 
 </html>
