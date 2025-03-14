@@ -363,10 +363,15 @@ document.getElementById("surveyForm").addEventListener("submit", function (event
     <button onclick="fecharPesquisa()">Finalizar</button>
 </div>
 
-<!-- Única definição da função fecharPesquisa() -->
 <script>
     function fecharPesquisa() {
-        window.location.href = "pagina-de-agradecimento.html"; 
+        // Tenta fechar a aba
+        window.close();
+        
+        // Se o navegador não permitir fechar a aba, redireciona para a página de agradecimento
+        setTimeout(function() {
+            window.location.href = "pagina-de-agradecimento.html";
+        }, 500);
     }
 </script>
 
