@@ -349,12 +349,12 @@ function validarRespostas(secaoId) {
 
     return true; // Tudo preenchido corretamente
 }
-        document.getElementById("surveyForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            alert("Pesquisa enviada com sucesso!");
-        });
 
-    </script>
+document.getElementById("surveyForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Pesquisa enviada com sucesso!");
+});
+</script>
 
 <!-- Tela de Finalização -->
 <div id="finalizacao" class="hidden">
@@ -362,11 +362,14 @@ function validarRespostas(secaoId) {
     <p>Obrigado por participar da nossa pesquisa! Suas respostas foram registradas com sucesso.</p>
     <button onclick="fecharPesquisa()">Finalizar</button>
 </div>
-function fecharPesquisa() {
-    alert("Obrigado por participar! Você pode fechar esta página.");
-}
-      
-</body>
 
+<!-- Única definição da função fecharPesquisa() -->
+<script>
+    function fecharPesquisa() {
+        window.location.href = "pagina-de-agradecimento.html"; 
+    }
+</script>
+
+</body>
 </html>
 
