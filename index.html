@@ -41,7 +41,8 @@ Por favor indique se você concorda em participar do estudo.
 
         <div id="survey" class="hidden">
             <h2>Questionário</h2>
-                    <label>Você consome leite ou derivados?</label>
+        <form id="surveyForm">
+            <label>Você consome leite ou derivados?</label>
             <select id="consumoLeite" required>
                 <option value="">Selecione</option>
                 <option value="sim">Sim</option>
@@ -127,9 +128,10 @@ Por favor indique se você concorda em participar do estudo.
                 <option value="diariamente">Diariamente</option>
             </select><br><br>
 
-            
+            <button type="button" onclick="mudarTela('secao-textHighlighting')">Próximo</button>
+  </form> <!-- Adicione o fechamento aqui -->
 </div>
-
+    
         <div id="secao-textHighlighting" class="hidden">
             <h3>Tarefa de Text Highlighting</h3>
             <p>Selecione partes do texto abaixo e marque como positivo (verde) ou negativo (vermelho).</p>
@@ -142,7 +144,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-1')">Próximo</button>
         </div>
 
- 
+    <form id="ceqForm">
   <div id="secao-avaliacaoEmocional-1" class="hidden">
 <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
 <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
@@ -271,7 +273,9 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             <button type="button" onclick="mudarTela('finalizacao')">Finalizar Pesquisa</button>
         </div>
 
-       <script>
+    </form>
+
+    <script>
         function startSurvey(accepted) {
             if (accepted) {
                 document.getElementById('tcle').classList.add('hidden');
@@ -289,17 +293,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             span.className = type === 'positive' ? 'highlight-positive' : 'highlight-negative';
             range.surroundContents(span);
         }
-function getHighlightedText() {
-    let highlights = [];
-    document.querySelectorAll('.highlight-positive, .highlight-negative').forEach(span => {
-        highlights.push({
-            text: span.textContent,
-            type: span.classList.contains('highlight-positive') ? 'positivo' : 'negativo'
-        });
-    });
-    return highlights;
-}
-        
+
 function mudarTela(proximaSecao) {
     const secoes = [
         'survey',
@@ -325,19 +319,17 @@ function mudarTela(proximaSecao) {
     }
 
     // Esconder todas as seções
-     secoes.forEach(secao => {
+    secoes.forEach(secao => {
         let elemento = document.getElementById(secao);
         if (elemento) {
-            elemento.style.display = "none"; // Em vez de classList.add('hidden')
+            elemento.classList.add('hidden');
         }
     });
 
     // Mostrar a próxima tela
     let proximaTela = document.getElementById(proximaSecao);
     if (proximaTela) {
-        proximaTela.style.display = "block"; // Em vez de classList.remove('hidden')
-    } else {
-        console.error(`A seção ${proximaSecao} não foi encontrada!`);
+        proximaTela.classList.remove('hidden');
     }
 
     window.scrollTo(0, 0);
@@ -358,60 +350,17 @@ function validarRespostas(secaoId) {
     return true; // Tudo preenchido corretamente
 }
 
-function validarAntesDeEnviar() {
-    if (!validarRespostas("survey") || !validarRespostas("secao-textHighlighting") ||
-        !validarRespostas("secao-avaliacaoEmocional-1") || !validarRespostas("secao-avaliacaoEmocional-2") || 
-        !validarRespostas("secao-avaliacaoEmocional-3")) {
-        alert("Por favor, responda todas as perguntas antes de finalizar.");
-        return;
-    }
-
-    // Agora o botão só avança para a tela de finalização
-    mudarTela("finalizacao");
-}
-        
-function enviarPesquisa() {
-    let botao = document.getElementById("botaoFinalizar");
-    botao.disabled = true; // ✅ Desativa o botão para evitar envios duplicados
-
-    let respostas = {
-        consumoLeite: document.getElementById("consumoLeite").value,
-        consumoPlant: document.getElementById("consumoPlant").value,
-        sexoBiologico: document.getElementById("sexoBiologico").value,
-        idade: document.getElementById("idade").value,
-        estadoCivil: document.getElementById("estadoCivil").value,
-        escolaridade: document.getElementById("escolaridade").value,
-        renda: document.getElementById("renda").value,
-        frequenciaLeite: document.getElementById("frequenciaLeite").value,
-        frequenciaPlant: document.getElementById("frequenciaPlant").value,
-        textoMarcado: getHighlightedText()
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbzPCKX-fnsUUpYKkisC32uCBHmox9mPT3ap99mUbstJuKCd79K33BRkpuwnwUNf62gu/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(respostas)
-    }).then(() => {
-        alert("Respostas enviadas com sucesso!");
-        setTimeout(() => {
-            fecharPesquisa(); // ✅ Agora só fecha se o envio for bem-sucedido
-        }, 1000);
-    }).catch(error => {
-        alert("Erro ao enviar respostas. Tente novamente.");
-        console.error(error);
-        botao.disabled = false; // ✅ Reativa o botão em caso de erro
-    });
-}
-        
+document.getElementById("surveyForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    alert("Pesquisa enviada com sucesso!");
+});
 </script>
-        
-</form>
+
 <!-- Tela de Finalização -->
 <div id="finalizacao" class="hidden">
     <h2>Pesquisa Finalizada</h2>
     <p>Obrigado por participar da nossa pesquisa! Suas respostas foram registradas com sucesso.</p>
-    <button type="button" id="botaoFinalizar" onclick="enviarPesquisa()">Enviar e Finalizar</button>
+    <button onclick="fecharPesquisa()">Finalizar</button>
 </div>
 
 <script>
@@ -428,4 +377,3 @@ function enviarPesquisa() {
 
 </body>
 </html>
-
