@@ -15,7 +15,8 @@
 <body>
     <div id="tcle">
         <h2>Termo de Consentimento</h2>
-        <p>Leia atentamente o termo antes de continuar.</p>
+        <p>Você foi convidado(a) a participar da pesquisa intitulada “O USO DA TÉCNICA DE COCRIAÇÃO PARA O DESENVOLVIMENTO DE PRODUTOS HÍBRIDOS...”</p>
+        <p>[Texto completo do TCLE aqui]</p>
         <button onclick="startSurvey(true)">Aceito</button>
         <button onclick="startSurvey(false)">Não aceito</button>
     </div>
@@ -30,11 +31,37 @@
                 <option value="não">Não</option>
             </select><br><br>
             
+            <label>Você consome produtos plant based?</label>
+            <select id="consumoPlant" required>
+                <option value="">Selecione</option>
+                <option value="sim">Sim</option>
+                <option value="não">Não</option>
+            </select><br><br>
+            
             <h3>Tarefa de Text Highlighting</h3>
             <p>Selecione partes do texto abaixo e marque como positivo (verde) ou negativo (vermelho).</p>
-            <p id="highlightText">O iogurte é um produto lácteo fermentado com cultivos protosimbióticos...</p>
+            <p id="highlightText">O iogurte é um produto lácteo fermentado com cultivos protosimbióticos de Streptococcus salivarius...</p>
             <button type="button" onclick="highlightText('positive')">Marcar Positivo</button>
             <button type="button" onclick="highlightText('negative')">Marcar Negativo</button><br><br>
+            
+            <h3>Avaliação de Produtos</h3>
+            <img src="produto1.jpg" alt="Produto 1"><br>
+            <label>Como você se sente sobre este produto?</label>
+            <select required>
+                <option value="">Selecione</option>
+                <option value="feliz">Feliz</option>
+                <option value="triste">Triste</option>
+                <option value="inspirado">Inspirado</option>
+            </select><br><br>
+            
+            <img src="produto2.jpg" alt="Produto 2"><br>
+            <label>Como você se sente sobre este produto?</label>
+            <select required>
+                <option value="">Selecione</option>
+                <option value="feliz">Feliz</option>
+                <option value="triste">Triste</option>
+                <option value="inspirado">Inspirado</option>
+            </select><br><br>
             
             <button type="submit">Finalizar Pesquisa</button>
         </form>
@@ -65,3 +92,4 @@
     </script>
 </body>
 </html>
+
