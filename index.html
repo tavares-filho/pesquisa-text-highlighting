@@ -123,6 +123,9 @@ Por favor indique se você concorda em participar do estudo.
                 <option value="diariamente">Diariamente</option>
             </select><br><br>
 
+            <button type="button" onclick="mudarTela('secao-textHighlighting')">Próximo</button>
+</div>
+    <div id="secao-textHighlighting" class="hidden">
              <h3>Tarefa de Text Highlighting</h3>
             <p>Selecione partes do texto abaixo e marque como positivo (verde) ou negativo (vermelho).</p>
             <p id="highlightText">O iogurte é um produto lácteo fermentado com cultivos protosimbióticos de Streptococcus salivarius subsp. thermophilus e Lactobacillus delbrueckii subsp. Bulgaricus, obtido por coagulação ácida e uma diminuição do pH do leite, ou reconstituído ou não de outros produtos lácteos. Amplamente consumido em diversos mercados ao redor do mundo, possuindo grande impacto economicamente. Sendo assim, existe no mercado diversas variações do produto, desde sua forma integral, desnatado, semi-desnatado, sem lactose; podendo ser encontrado em diferentes formatos, sabores e formulações, desde as versões naturais até aquelas enriquecidas com probióticos, prebióticos, frutas e adoçantes. 
@@ -131,6 +134,11 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 </p>
             <button type="button" onclick="highlightText('positive')">Marcar Positivo</button>
             <button type="button" onclick="highlightText('negative')">Marcar Negativo</button><br><br>
+
+         <button type="button" onclick="mudarTela('secao-avaliacaoEmocional')">Próximo</button>
+</div>
+
+    <div id="secao-avaliacaoEmocional" class="hidden">
 <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
 <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
 
@@ -179,7 +187,9 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 <input type="checkbox" name="atributosProduto1" value="Textura arenosa"> Textura arenosa<br>
 <input type="checkbox" name="atributosProduto1" value="Cor branco cremoso"> Cor branco cremoso<br>
 <input type="checkbox" name="atributosProduto1" value="Aparência brilhante"> Aparência brilhante<br><br>
-            
+
+    <button type="submit">Finalizar Pesquisa</button>
+</div>
             <button type="submit">Finalizar Pesquisa</button>
         </form>
     </div>
