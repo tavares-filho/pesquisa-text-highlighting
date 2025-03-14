@@ -189,7 +189,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
 <input type="checkbox" name="atributosProduto1" value="Aparência brilhante"> Aparência brilhante<br><br>
 
   <!-- Produto 2 -->
-    <div id="secao-avaliacaoEmocional-2">
+    <div id="secao-avaliacaoEmocional-2" class="hidden">
         <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
         <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
         <h4>Produto 2</h4>
@@ -222,11 +222,11 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         <input type="checkbox" name="atributosProduto2" value="Não conheço esses ingredientes"> Não conheço esses ingredientes<br>
         <input type="checkbox" name="atributosProduto2" value="É bom para o meio ambiente"> É bom para o meio ambiente<br><br>
 
-        <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-2')">Próximo Produto</button>
-    </div>
+        <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-3')">Próximo Produto</button>
+</div>
 
           <!-- Produto 3 -->
-    <div id="secao-avaliacaoEmocional-3">
+    <div id="secao-avaliacaoEmocional-3" class="hidden">
         <h3>Tarefa de Avaliação Emocional (CEQ)</h3>
         <p>As pessoas experimentam emoções e sentimentos em resposta a uma variedade de estímulos no mundo ao seu redor, incluindo o que elas comem e bebem. Nesta pesquisa, pediremos que você imagine que está consumindo diferentes alimentos, e gostaríamos de saber como isso faz você se sentir.</p>
         <h4>Produto 3</h4>
@@ -259,10 +259,7 @@ A redução do consumo de produtos de origem animal está associada a diversas d
         <input type="checkbox" name="atributosProduto3" value="Não conheço esses ingredientes"> Não conheço esses ingredientes<br>
         <input type="checkbox" name="atributosProduto3" value="É bom para o meio ambiente"> É bom para o meio ambiente<br><br>
 
-        <button type="button" onclick="mudarTela('secao-avaliacaoEmocional-2')">Próximo Produto</button>
-    </div>
-        
-         
+                      
               <button type="submit">Finalizar Pesquisa</button>
         </form>
     </div>
@@ -293,13 +290,22 @@ A redução do consumo de produtos de origem animal está associada a diversas d
     </script>
   <script>
    function mudarTela(proximaSecao) {
-    const secoes = ['survey', 'secao-textHighlighting', 'secao-avaliacaoEmocional'];
-    
-    secoes.forEach(secao => {
-        document.getElementById(secao).classList.add('hidden');
-    });
+  const secoes = [
+    'survey', 
+    'secao-textHighlighting', 
+    'secao-avaliacaoEmocional-1', 
+    'secao-avaliacaoEmocional-2', 
+    'secao-avaliacaoEmocional-3', 
+    'secao-avaliacaoEmocional-4', 
+    'secao-avaliacaoEmocional-5', 
+    'secao-avaliacaoEmocional-6'
+  ];
 
-    document.getElementById(proximaSecao).classList.remove('hidden');
+  secoes.forEach(secao => {
+    document.getElementById(secao).classList.add('hidden');
+  });
+
+  document.getElementById(proximaSecao).classList.remove('hidden');
 }
 </script>
 </body>
