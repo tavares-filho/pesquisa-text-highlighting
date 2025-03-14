@@ -218,5 +218,14 @@ A redução do consumo de produtos de origem animal está associada a diversas d
             alert("Pesquisa enviada com sucesso!");
         });
     </script>
+  <script>
+    function mudarTela(proximaSecao) {
+        document.getElementById('secao-questionario').classList.add('hidden');
+        document.getElementById('secao-textHighlighting').classList.add('hidden');
+        document.getElementById('secao-avaliacaoEmocional').classList.add('hidden');
+
+        document.getElementById(proximaSecao).classList.remove('hidden');
+    }
+</script>
 </body>
 </html>
